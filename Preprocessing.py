@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OrdinalEncoder
 
 
@@ -16,4 +17,4 @@ class Preprocessor:
         enc.fit(data)
         data = enc.transform(data)
 
-        return data
+        return train_test_split(data.drop('income', axis = 1), data['income'])
