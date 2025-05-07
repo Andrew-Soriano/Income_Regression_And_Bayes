@@ -14,16 +14,15 @@ X = adult.data.features
 y = adult.data.targets
 
 adult_df = pd.concat([X, y], axis = 1)
-#print(adult_df)
 
 # metadata
-#print(adult.metadata)
+print(adult.metadata)
 
 # variable information
-#print(adult.variables)
+print(adult.variables)
 
-#pairplot(adult_df, hue='income')
-#plt.show()
+pairplot(adult_df, hue='income')
+plt.show()
 
 enc = OrdinalEncoder()
 enc.set_output(transform="pandas")
@@ -38,5 +37,5 @@ scaler.fit(X_scaled)
 X_scaled = scaler.transform(X_scaled)
 adult_df_scaled = pd.concat([X_scaled, y], axis = 1)
 
-#pairplot(adult_df_scaled, hue='income')
-#plt.show()
+pairplot(adult_df_scaled, hue='income')
+plt.show()
