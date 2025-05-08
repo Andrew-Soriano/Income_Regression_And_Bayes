@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.metrics import accuracy_score, root_mean_squared_error
+from sklearn.metrics import root_mean_squared_error
 from ucimlrepo import fetch_ucirepo
 from sklearn import linear_model
 from Preprocessing import Preprocessor
@@ -12,9 +12,8 @@ y = adult.data.targets
 
 data = pd.concat([X, y], axis = 1)
 
-preprocesor = Preprocessor()
-X_trn, X_tst, y_trn, y_tst = preprocesor.preprocess(data)
-
+preprocessor = Preprocessor()
+X_trn, X_tst, y_trn, y_tst = preprocessor.preprocess(data)
 
 reg = linear_model.Ridge(alpha=.1)
 
